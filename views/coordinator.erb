@@ -1,0 +1,17 @@
+<h1><%= @coordinator.name %></h1>
+
+<h3>Teams under <%=@coordinator.name%>'s rule:</h3>
+
+<ul>
+  <% @teams.each do |team| %>
+    <li> <a href="/team/<%= team.id %>"> <%= team.name %></a></li>
+  <% end %>
+</ul>
+
+<form action="/coordinator/<%=@coordinator.id%>" method="post">
+  <div class="form-group">
+    <label for="name">Team: </label>
+    <input id="name" name="name" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn btn-warning">Add Team</button>
+</form>

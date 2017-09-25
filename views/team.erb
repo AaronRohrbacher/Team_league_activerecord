@@ -1,0 +1,19 @@
+<h1><%= @team.name %></h1>
+
+<h3>Players on team: <%=@team.name%></h3>
+
+<ul>
+  <% @players.each do |player| %>
+    <li> <a href="/player/<%= player.id %>"> <%= player.name %></a></li>
+  <% end %>
+</ul>
+
+<form action="/team/<%=@team.id%>" method="post">
+  <div class="form-group">
+    <label for="name">Player: </label>
+    <input id="name" name="name" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn btn-warning">Add Player</button>
+</form>
+
+<a href="/">home</a>
