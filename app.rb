@@ -5,13 +5,18 @@ require("sinatra/activerecord")
 require("./lib/player")
 require("./lib/team")
 require("./lib/coordinator")
+require("./lib/game")
 require("pg")
 require('pry')
+
+Coordinator.seed()
+Game.match_teams()
 
 get('/') do
   @coordinators = Coordinator.all()
   @teams = Team.all()
   @players = Player.all()
+  @games = Game.all()
   erb(:index)
 end
 
@@ -60,4 +65,9 @@ patch('/player/:id') do
   @player.update({:name => params['name']})
   @team = @player.team()
   erb(:player)
+end
+
+get('/game/:id') do
+  @game = Game.find(params['id'])
+  erb(:game)
 end

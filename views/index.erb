@@ -12,3 +12,12 @@
     <li> <a href="/coordinator/<%= coordinator.id %>"> <%= coordinator.name %></a></li>
   <% end %>
 </ul>
+
+<br>
+<h3>Upcoming games:</h3>
+
+<ul>
+  <% @games.each do |game| %>
+    <li> <a href="/game/<%= game.id %>"> <%= game.name %></a></li>
+  <% end %>
+</ul>
